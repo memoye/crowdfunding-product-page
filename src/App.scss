@@ -1,1 +1,16 @@
 @import "./styles/variables";
+
+.App {
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  min-height: 100vh;
+  background: url("./assets/image-hero-desktop.jpg") no-repeat center top /
+    contain;
+}
+
+@media screen and (max-width: 500px) {
+  .App {
+    background-image: url("./assets/image-hero-mobile.jpg");
+  }
+}

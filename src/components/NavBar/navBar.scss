@@ -1,0 +1,89 @@
+@import "../../styles/variables";
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 1.5em 10%;
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    gap: 1rem;
+    margin-left: 5px;
+    padding: 0;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+
+      &:focus {
+        text-decoration: underline;
+      }
+
+      &:visited {
+        color: rgb(227, 227, 227);
+      }
+    }
+
+    li:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.mobileNav {
+  display: none;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  .navBar > .desktopNav {
+    display: none;
+  }
+
+  .mobileNav {
+    display: block;
+    position: relative;
+
+    .hamburger,
+    .close {
+      all: unset;
+      display: flex;
+      place-items: center;
+      width: 1.5rem;
+      aspect-ratio: 1;
+      padding: 2px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .close {
+      align-self: end;
+    }
+
+    .mobileNavLinks {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      width: max-content;
+      right: -10px;
+      top: -10px;
+      margin: 0;
+      text-align: left;
+      padding: 10px;
+      background: $dark-gray;
+      border-radius: 10px;
+
+      ul {
+        margin-left: 0 !important;
+      }
+    }
+  }
+}
