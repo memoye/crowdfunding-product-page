@@ -1,0 +1,104 @@
+@import "../../styles/variables";
+
+.customButton {
+  all: unset;
+  background: $pri-mod;
+  border-radius: 3rem;
+  color: white;
+  font-weight: 700;
+  padding: 0.75em 1.5em;
+  position: relative;
+  cursor: pointer;
+  letter-spacing: 1px;
+
+  &:hover {
+    background: $pri-dark;
+  }
+
+  &:disabled {
+    background: $neutral-mid;
+    color: rgb(211, 211, 211);
+    filter: brightness(115%);
+    cursor: auto;
+  }
+}
+
+.switch {
+  background: $neutral-light;
+  color: $neutral-mid;
+
+  &_icon {
+    aspect-ratio: 1;
+    background: hsl(0, 0%, 10%);
+    border-radius: 50%;
+    display: flex;
+    height: calc(100% + 2px);
+    place-items: center;
+    position: absolute;
+    top: 50%;
+    transition: all 200ms ease-in;
+    // display: inline-block;
+    transform: translateY(-50%);
+    left: 0;
+
+    * {
+      margin: auto;
+    }
+  }
+
+  &:hover,
+  &:hover > &_icon {
+    background: $neutral-mid;
+    color: $neutral-light;
+  }
+
+  &:hover {
+    .doneState {
+      background: $pri-dark;
+    }
+  }
+
+  .doneState {
+    left: 72%;
+    background: $pri-mod;
+    height: calc(100% - 1rem);
+
+    &:hover,
+    &:hover > &_icon {
+      background: $pri-mod;
+      color: white;
+    }
+  }
+
+  &:hover {
+    background: $neutral-light;
+    color: $neutral-mid;
+  }
+
+  &:disabled {
+    background: $neutral-mid;
+    color: rgb(211, 211, 211);
+    opacity: 0.9;
+    filter: brightness(110%);
+
+    .switch_icon,
+    &:hover {
+      background: $neutral-mid;
+      opacity: 0.9;
+      filter: brightness(110%);
+    }
+  }
+}
+
+.padLeft {
+  padding-left: 3.2em;
+}
+
+.padRight {
+  transition: padding-right 300ms;
+  padding-right: 3.5em;
+}
+
+.switchDone {
+  color: white;
+}

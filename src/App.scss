@@ -5,8 +5,8 @@
   margin: 0 auto;
   min-height: 100dvh;
   min-height: 100vh;
-  background: url("./assets/image-hero-desktop.jpg") no-repeat center top /
-    contain;
+  background: $neutral-light url("./assets/image-hero-desktop.jpg") no-repeat
+    center top / contain;
 }
 
 @media screen and (max-width: 500px) {
