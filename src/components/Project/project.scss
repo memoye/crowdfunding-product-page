@@ -1,1 +1,135 @@
 @import "../../styles/variables";
+
+.project {
+  margin: auto;
+  width: 700px;
+  max-width: 80vw;
+}
+
+.card {
+  position: relative;
+  background: white;
+  padding: 2em;
+  border-radius: 10px;
+  border: 1px solid $neutral-light;
+}
+
+.titleCard {
+  text-align: center;
+
+  &__logo {
+    border-radius: 50%;
+    left: 50%;
+    transform: translatex(-50%);
+    position: absolute;
+    top: -2em;
+    width: fit-content;
+  }
+
+  &__title {
+    //
+  }
+
+  &__description {
+    margin: 1rem auto 2rem;
+  }
+
+  &__buttonsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.stats {
+  padding: 2em;
+  border-radius: 10px;
+
+  &__figures {
+    display: flex;
+    margin-bottom: 2rem;
+
+    .figure + .figure {
+      border-left: 1px solid $neutral-light;
+    }
+  }
+
+  .figure {
+    display: flex;
+    padding: 0 2em;
+
+    &__value {
+      color: black;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    &__description {
+      margin: 0;
+      line-height: 1;
+      font-weight: 400;
+    }
+  }
+
+  .noLeftPadding {
+    padding-left: 0;
+  }
+
+  .column {
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+  }
+
+  .row {
+    align-items: center;
+    gap: 10px;
+  }
+
+  .progressBar {
+    width: 100%;
+    height: 1rem;
+    border: none;
+
+    // bar container
+    &::-webkit-progress-bar {
+      background-color: $neutral-light;
+      border-radius: 10px;
+    }
+
+    // actual progress
+    &::-webkit-progress-value {
+      background-color: $pri-mod;
+      border-radius: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .stats__figures {
+    flex-direction: column;
+    align-items: center;
+
+    .figure + .figure {
+      border: none;
+      border-top: 1px solid $neutral-light;
+      padding: 1em;
+    }
+
+    .noLeftPadding {
+      padding: 1em !important;
+    }
+
+    .figure {
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .titleCard__buttonsContainer {
+    justify-content: center;
+    gap: 1em;
+  }
+}

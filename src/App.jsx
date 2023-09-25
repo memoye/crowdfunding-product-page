@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.scss'
-import { NavBar } from './components'
+import { NavBar, Project } from './components'
 
 function App() {
 
@@ -9,6 +9,7 @@ function App() {
 
       <div className='App'>
         <NavBar />
+        <Project />
       </div >
     </>
   )

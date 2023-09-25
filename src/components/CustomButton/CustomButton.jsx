@@ -16,10 +16,12 @@ const CustomButton = ({ children, variation = 'default', disabled = false, done 
         >
             { (variation === 'switch' && startIcon) &&
                 (<span className={ `switch_icon ${done && 'doneState'}` }>
-                    { done ? (<FaCheck className='switchDone' />) : startIcon }
+                    { done ? (<FaCheck color='#fff' className='switchDone' />) : startIcon }
                 </span>)
             }
-            { children }{ (variation === 'switch' && done) && (children[children.length - 1] === 'e' ? 'd!' : 'ed!') }
+            <div className="children">
+                { children }{ (variation === 'switch' && done) && (children[children.length - 1] === 'e' ? 'd!' : 'ed!') }
+            </div>
         </button>
     )
 }

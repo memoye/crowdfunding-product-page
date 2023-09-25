@@ -6,7 +6,7 @@
   border-radius: 3rem;
   color: white;
   font-weight: 700;
-  padding: 0.75em 1.5em;
+  padding: 1em 1.5em;
   position: relative;
   cursor: pointer;
   letter-spacing: 1px;
@@ -27,6 +27,10 @@
   background: $neutral-light;
   color: $neutral-mid;
 
+  .children {
+    padding-left: 10px;
+  }
+
   &_icon {
     aspect-ratio: 1;
     background: hsl(0, 0%, 10%);
@@ -36,8 +40,7 @@
     place-items: center;
     position: absolute;
     top: 50%;
-    transition: all 200ms ease-in;
-    // display: inline-block;
+    transition: all 200ms ease;
     transform: translateY(-50%);
     left: 0;
 
@@ -59,7 +62,7 @@
   }
 
   .doneState {
-    left: 72%;
+    left: 75%;
     background: $pri-mod;
     height: calc(100% - 1rem);
 
@@ -96,9 +99,74 @@
 
 .padRight {
   transition: padding-right 300ms;
-  padding-right: 3.5em;
+  padding-right: 3.2em;
 }
 
 .switchDone {
   color: white;
+}
+
+@media screen and (max-width: 730px) {
+  .switch {
+    // min-height: 2rem;
+    background: rgb(17, 17, 17);
+    aspect-ratio: 1;
+    // padding: 1em;
+
+    .switchDone {
+      color: white;
+      height: fit-content;
+      padding: 0 !important;
+    }
+
+    .doneState {
+      all: unset;
+    }
+
+    .children {
+      display: none;
+    }
+
+    &_icon {
+      all: unset;
+      font-size: 1.5rem;
+      box-sizing: content-box;
+      height: 100%;
+      aspect-ratio: 1;
+      position: relative;
+    }
+
+    &:hover {
+      background: $neutral-mid;
+      .doneState {
+        background: $neutral-mid;
+      }
+    }
+  }
+
+  .padLeft {
+    padding: 1em !important;
+    font-size: 1rem !important;
+    & * {
+      display: flex;
+      place-content: center;
+    }
+  }
+
+  .padRight {
+    padding: 1em !important;
+
+    & * {
+      display: flex;
+      place-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .customButton {
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5 1em;
+  }
 }
