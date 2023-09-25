@@ -2,7 +2,10 @@ import Figure from './Figure'
 import './project.scss'
 
 
-const StatsSection = ({ totalAmt, targetAmt, totalBackers, daysLeft }) => {
+const StatsSection = (props) => {
+
+    const { totalAmt, targetAmt, totalBackers, daysLeft } = props.stats
+
     return (
         <section className='stats card'>
             <div className='stats__figures'>

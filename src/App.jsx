@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.scss'
 import { NavBar, Project } from './components'
+import { ProjectsContextProvider } from './context/ProjectsContext'
 
 function App() {
 
@@ -8,7 +9,10 @@ function App() {
     <>
       <div className='App'>
         <NavBar />
-        <Project />
+
+        <ProjectsContextProvider>
+          <Project />
+        </ProjectsContextProvider>
       </div >
     </>
   )
