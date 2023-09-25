@@ -2,7 +2,7 @@ import Figure from './Figure'
 import './project.scss'
 
 
-const Stats = ({ totalAmt, targetAmt, totalBackers, daysLeft }) => {
+const StatsSection = ({ totalAmt, targetAmt, totalBackers, daysLeft }) => {
     return (
         <section className='stats card'>
             <div className='stats__figures'>
@@ -31,4 +31,4 @@ const Stats = ({ totalAmt, targetAmt, totalBackers, daysLeft }) => {
         </section>
     )
 }
-export default Stats
+export default StatsSection

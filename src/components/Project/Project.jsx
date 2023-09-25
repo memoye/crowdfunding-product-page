@@ -1,7 +1,7 @@
 import TitleCard from './TitleCard'
 import './project.scss'
 import { mastercraft } from '../../assets'
-import Stats from './Stats'
+import StatsSection from './StatsSection'
 import AboutSection from './AboutSection'
 
 const Project = () => {
@@ -22,7 +22,7 @@ const Project = () => {
         <div className="project">
             <TitleCard { ...project } />
 
-            <Stats { ...project.stats } />
+            <StatsSection { ...project.stats } />
 
             <AboutSection />
         </div>
