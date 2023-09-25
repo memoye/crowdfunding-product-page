@@ -5,7 +5,7 @@
   background: $pri-mod;
   border-radius: 3rem;
   color: white;
-  font-weight: 700;
+  font-weight: 500;
   padding: 1em 1.5em;
   position: relative;
   cursor: pointer;
@@ -31,12 +31,16 @@
     padding-left: 10px;
   }
 
+  .doneColor {
+    color: $pri-mod;
+  }
+
   &_icon {
     aspect-ratio: 1;
     background: hsl(0, 0%, 10%);
     border-radius: 50%;
     display: flex;
-    height: calc(100% + 2px);
+    height: calc(100%);
     place-items: center;
     position: absolute;
     top: 50%;
@@ -113,8 +117,8 @@
 
     .switchDone {
       color: white;
-      height: fit-content;
-      padding: 0 !important;
+      height: 100%;
+      // padding: 0 !important;
     }
 
     .doneState {

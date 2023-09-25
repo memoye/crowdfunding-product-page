@@ -2,8 +2,11 @@
 
 .project {
   margin: auto;
+
   width: 700px;
   max-width: 80vw;
+  box-sizing: content-box;
+  padding: 25vmin 0;
 }
 
 .card {
@@ -12,6 +15,7 @@
   padding: 2em;
   border-radius: 10px;
   border: 1px solid $neutral-light;
+  margin-top: 1.5rem;
 }
 
 .title {
@@ -53,60 +57,102 @@
       border-left: 1px solid $neutral-light;
     }
   }
+}
 
-  .figure {
-    display: flex;
-    padding: 0 2em;
+.figure {
+  display: flex;
+  padding: 0 2em;
+  gap: 5px;
 
-    &__value {
-      color: black;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    &__description {
-      margin: 0;
-      line-height: 1;
-      font-weight: 400;
-    }
+  &__value {
+    color: black;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
   }
 
-  .noLeftPadding {
-    padding-left: 0;
+  &__description {
+    margin: 0;
+    line-height: 1;
+    font-weight: 400;
+  }
+}
+
+.noLeftPadding {
+  padding-left: 0;
+}
+
+.column {
+  flex-direction: column;
+  align-items: start;
+}
+
+.row {
+  align-items: center;
+}
+
+.progressBar {
+  width: 100%;
+  height: 1rem;
+  border: none;
+  transition: all 100ms ease;
+
+  // bar container
+  &::-webkit-progress-bar {
+    background-color: $neutral-light;
+    border-radius: 10px;
   }
 
-  .column {
-    flex-direction: column;
-    align-items: start;
-    gap: 5px;
-  }
-
-  .row {
-    align-items: center;
-    gap: 10px;
-  }
-
-  .progressBar {
-    width: 100%;
-    height: 1rem;
-    border: none;
-
-    // bar container
-    &::-webkit-progress-bar {
-      background-color: $neutral-light;
-      border-radius: 10px;
-    }
-
-    // actual progress
-    &::-webkit-progress-value {
-      background-color: $pri-mod;
-      border-radius: 10px;
-    }
+  // actual progress
+  &::-webkit-progress-value {
+    background-color: $pri-mod;
+    border-radius: 10px;
   }
 }
 
 .about {
+  p {
+    line-height: 1.65;
+  }
+  .rewards {
+    display: grid;
+    gap: 1rem;
+  }
+}
+
+.rewardPack {
+  padding: 1em;
+
+  &__title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 1;
+  }
+
+  &__subtitle {
+    color: $pri-mod;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+
+  &__description {
+    //
+  }
+
+  .bottomContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.fadeOut {
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 700px) {
