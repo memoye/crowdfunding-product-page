@@ -8,11 +8,11 @@ const TitleCard = ({ title, description, projectLogo }) => {
     const [done, setDone] = useState(false)
 
     return (
-        <section className='titleCard card'>
-            <img src={ projectLogo } alt="project__logo" className="titleCard__logo" />
-            <h1 className='titleCard__title'>{ title }</h1>
-            <p className='titleCard__description'>{ description }</p>
-            <div className='titleCard__buttonsContainer'>
+        <section className='title card'>
+            <img src={ projectLogo } alt="project__logo" className="title__logo" />
+            <h1 className='title__title'>{ title }</h1>
+            <p className='title__description'>{ description }</p>
+            <div className='title__buttonsContainer'>
                 <CustomButton>Back this project</CustomButton>
 
                 <CustomButton

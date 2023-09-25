@@ -14,7 +14,7 @@
   border: 1px solid $neutral-light;
 }
 
-.titleCard {
+.title {
   text-align: center;
 
   &__logo {
@@ -27,7 +27,7 @@
   }
 
   &__title {
-    //
+    font-size: 2rem;
   }
 
   &__description {
@@ -104,6 +104,9 @@
       border-radius: 10px;
     }
   }
+}
+
+.about {
 }
 
 @media screen and (max-width: 700px) {
