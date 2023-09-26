@@ -10,7 +10,7 @@ const RewardPack = ({ name, description, minimumPledge, remaining, handleSelect 
             <h3 className='rewardPack__title'>{ name } <span className='rewardPack__subtitle'>Pledge ${ minimumPledge && minimumPledge.toLocaleString() } or more</span></h3>
             <p className="rewardPack__description">{ description }</p>
             <div className='bottomContainer'>
-                { remaining && <Figure
+                { remaining !== null && <Figure
                     value={ remaining }
                     description={ 'left' }
                     customStyle={ 'noLeftPadding' }

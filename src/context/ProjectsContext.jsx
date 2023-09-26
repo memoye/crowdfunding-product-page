@@ -55,9 +55,10 @@ const ProjectsContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(projectsReducer, initialState)
     const [modalOpen, setModalOpen] = useState(0)
     const [modalStep, setModalStep] = useState(1)
+    const [selectedReward, setSelectedReward] = useState('')
 
     return (
-        <ProjectsContext.Provider value={ { state, dispatch, modalOpen, setModalOpen } }>
+        <ProjectsContext.Provider value={ { state, dispatch, modalOpen, setModalOpen, modalStep, setModalStep, selectedReward, setSelectedReward } }>
             { children }
         </ProjectsContext.Provider>
     )

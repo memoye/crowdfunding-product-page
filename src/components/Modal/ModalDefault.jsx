@@ -1,19 +1,23 @@
 import { HiX } from 'react-icons/hi'
 import { getProjectContext } from '../../context/ProjectsContext'
 import ModalRewardPacks from './ModalRewardPacks'
+
+
 const ModalDefault = () => {
 
-    const { state: project } = getProjectContext()
+    const { state: project, setModalOpen } = getProjectContext()
+
+
 
     return (
         <div className={ `modal` } onClick={ (e) => {
             e.stopPropagation()
-            console.log('modal')
         } }>
             <HiX className='close'
+                title='Close'
                 onClick={ (e) => {
                     e.stopPropagation()
-                    console.log('close modal')
+                    setModalOpen(false)
                 } }
             />
             <h2>Back this project</h2>
@@ -28,6 +32,7 @@ const ModalDefault = () => {
                         />))
                 }
             </div>
+
         </div>
     )
 }

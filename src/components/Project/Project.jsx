@@ -38,15 +38,16 @@ const Project = () => {
                     {
                         project.rewardPacks
                             .map((item, i) => {
-                                // if (item.minimiumPledge !== 0) {
-                                return (
-                                    <RewardPack
-                                        key={ i }
-                                        id={ project.id }
-                                        handleSelect={ () => handleSelect(item.name) }
-                                        { ...item } />
-                                )
-                                // }
+                                if (item.remaining !== null) {
+                                    return (
+                                        <RewardPack
+                                            key={ i }
+                                            id={ project.id }
+                                            handleSelect={ () => handleSelect(item.name) }
+                                            { ...item }
+                                        />
+                                    )
+                                }
                             })
                     }
                 </div>

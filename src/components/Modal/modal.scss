@@ -10,7 +10,7 @@
   max-width: 1440px;
   margin: auto;
   overflow-y: scroll;
-  padding: 2rem 0;
+  padding: 20vmin 0;
 
   &::-webkit-scrollbar {
     display: none;
@@ -23,7 +23,7 @@
     border: 1px solid $neutral-light;
     margin-top: 1.5rem;
     margin: auto;
-    width: 700px;
+    width: 630px;
     max-width: 70vw;
     position: relative;
 
@@ -37,6 +37,10 @@
       position: absolute;
       right: 1rem;
       top: 1rem;
+
+      &:hover {
+        color: red;
+      }
     }
 
     h2 {
@@ -47,6 +51,12 @@
       line-height: 1.65;
     }
   }
+
+  .completed {
+    text-align: center;
+    width: 500px;
+    max-width: 70vw;
+  }
 }
 
 .rewards {
@@ -54,12 +64,95 @@
   border-radius: 10px;
   padding: 1em;
 
+  .selected {
+    position: relative;
+
+    hr {
+      position: absolute;
+      top: 0;
+      left: -1em;
+      right: -1em;
+      border: none;
+      border-top: 1px solid $neutral-light;
+    }
+
+    .enterPledge {
+      padding-top: 2em;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      p {
+        flex: 1;
+      }
+    }
+
+    .form {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1em;
+    }
+
+    .formField {
+      width: 6rem;
+      height: 2.1rem;
+      position: relative;
+      padding: 0.5em;
+      border-radius: 10px;
+
+      input {
+        border-radius: 30px;
+        padding: 0 1.75em;
+        position: absolute;
+        inset: 0;
+        background: transparent;
+        outline: none;
+        border: 1px solid $neutral-light;
+        font-weight: 700;
+        caret-color: $pri-mod;
+
+        &:focus {
+          border-color: $pri-mod;
+        }
+      }
+
+      .inputError {
+        border-color: red !important;
+      }
+
+      span {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 1em;
+        font-weight: 700;
+        color: $neutral-light;
+      }
+    }
+  }
+
+  .submit {
+    padding: 0.9rem 1.25rem !important;
+  }
+
   .circle {
     all: unset;
     width: 2rem;
     aspect-ratio: 1;
     border: 1px solid $neutral-mid;
     border-radius: 50%;
+    display: grid;
+    place-items: center;
+    padding: 0;
+
+    span {
+      display: inline-block;
+      height: 50%;
+      aspect-ratio: 1;
+      background: $pri-dark;
+      border-radius: 50%;
+    }
   }
 
   .rewardsTxt {
@@ -75,6 +168,11 @@
       justify-content: space-between;
       gap: 1.15em;
       cursor: pointer;
+
+      .indicateError {
+        font-weight: 700;
+        text-decoration: underline;
+      }
 
       &:hover > .rewardsTxt__title {
         color: $pri-dark;
@@ -135,5 +233,12 @@
 
   .rewards .rewardsTxt__title {
     gap: 5px;
+  }
+
+  .selected {
+    .enterPledge {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }
