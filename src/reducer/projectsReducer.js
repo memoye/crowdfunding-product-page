@@ -10,10 +10,7 @@ export const projectsReducer = (state, action) => {
                     return { ...pack }
                 }
             })
-
             const updatedStats = { ...state.stats, totalAmt: state.stats.totalAmt + currentPack.minimumPledge, totalBackers: state.stats.totalBackers + 1, }
-
-
             return { ...state, rewardPacks: updatedPacks, stats: updatedStats }
 
 

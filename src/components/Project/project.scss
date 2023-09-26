@@ -2,7 +2,6 @@
 
 .project {
   margin: auto;
-
   width: 700px;
   max-width: 80vw;
   box-sizing: content-box;
@@ -177,7 +176,7 @@
 }
 
 @media screen and (max-width: 500px) {
-  .titleCard__buttonsContainer {
+  .titleSection__buttonsContainer {
     justify-content: center;
     gap: 1em;
   }

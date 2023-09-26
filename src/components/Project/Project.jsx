@@ -1,13 +1,13 @@
-import TitleCard from './TitleCard'
+import TitleSection from './TitleSection'
 import './project.scss'
 import { mastercraft } from '../../assets'
 import StatsSection from './StatsSection'
 import RewardPack from './RewardPack'
-import { getProject } from '../../context/ProjectsContext'
+import { getProjectContext } from '../../context/ProjectsContext'
 
 const Project = () => {
 
-    const { state, dispatch, current } = getProject()
+    const { state, dispatch, current } = getProjectContext()
     const project = state
 
     function handleSelect(name) {
@@ -16,7 +16,7 @@ const Project = () => {
 
     return (
         <div className="project">
-            <TitleCard { ...project } />
+            <TitleSection { ...project } />
 
             <StatsSection
                 { ...project }
@@ -37,13 +37,17 @@ const Project = () => {
                 <div className='rewards'>
                     {
                         project.rewardPacks
-                            .map((item, i) => (
-                                <RewardPack
-                                    key={ i }
-                                    id={ project.id }
-                                    handleSelect={ () => handleSelect(item.name) }
-                                    { ...item } />
-                            ))
+                            .map((item, i) => {
+                                // if (item.minimiumPledge !== 0) {
+                                return (
+                                    <RewardPack
+                                        key={ i }
+                                        id={ project.id }
+                                        handleSelect={ () => handleSelect(item.name) }
+                                        { ...item } />
+                                )
+                                // }
+                            })
                     }
                 </div>
             </div>

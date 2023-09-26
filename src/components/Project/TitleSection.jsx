@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { FaBookmark } from 'react-icons/fa'
 
 
-const TitleCard = ({ title, description, projectLogo }) => {
+const TitleSection = ({ title, description, projectLogo }) => {
     const [done, setDone] = useState(false)
 
     return (
@@ -28,4 +28,4 @@ const TitleCard = ({ title, description, projectLogo }) => {
         </section>
     )
 }
-export default TitleCard
+export default TitleSection

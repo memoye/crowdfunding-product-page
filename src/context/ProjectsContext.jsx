@@ -7,6 +7,7 @@ const initialState = {
     id: 1,
     title: 'Mastercraft Bamboo Monitor Riser',
     description: 'A beautiful & handcrafted monitor stand to reduce neck and eye strain.',
+    modalDesc: `Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?`,
     projectLogo: mastercraft,
     about: ` The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen
     to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve
@@ -21,6 +22,13 @@ const initialState = {
     },
 
     rewardPacks: [
+        {
+            name: 'Pledge with no rewards',
+            description: ` Choose to support us without a reward if you simply believe in our project. As a backer, 
+            you will be signed up to receive product updates via email.`,
+            minimumPledge: 0,
+            remaining: null
+        },
         {
             name: 'Bamboo Stand',
             description: `You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you'll be added to a special Backer member list.`,
@@ -45,17 +53,18 @@ const initialState = {
 const ProjectsContextProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(projectsReducer, initialState)
-    const [current, setCurrent] = useState(1)
+    const [modalOpen, setModalOpen] = useState(0)
+    const [modalStep, setModalStep] = useState(1)
 
     return (
-        <ProjectsContext.Provider value={ { state, dispatch, current, setCurrent } }>
+        <ProjectsContext.Provider value={ { state, dispatch, modalOpen, setModalOpen } }>
             { children }
         </ProjectsContext.Provider>
     )
 }
 
-function getProject() {
+function getProjectContext() {
     return useContext(ProjectsContext)
 }
 
-export { ProjectsContextProvider, getProject }
+export { ProjectsContextProvider, getProjectContext }
