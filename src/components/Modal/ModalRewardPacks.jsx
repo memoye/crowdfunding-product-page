@@ -3,20 +3,19 @@ import Figure from "../Project/Figure"
 import CustomButton from "../CustomButton/CustomButton"
 import { getProjectContext } from "../../context/ProjectsContext"
 
-const ModalRewardPacks = ({ name, description, minimumPledge, remaining }) => {
-    const { selectedReward, setSelectedReward, dispatch } = getProjectContext()
+const ModalRewardPacks = ({ name, description, minimumPledge, remaining, variation = 'default' }) => {
+    const { selectedReward, setSelectedReward, setModalStep, dispatch } = getProjectContext()
     // const [selected, setSelected] = useState(false)
     const [userInput, setUserInput] = useState('')
     const [error, setError] = useState(false)
 
     function handleSelect() {
-
-        if (selectedReward === name) {
-            setSelectedReward('')
+        if (selectedReward?.name === name) {
+            setSelectedReward(null)
         } else {
-            setSelectedReward(name)
+            setSelectedReward({ name, description, minimumPledge, remaining })
         }
-        // console.log(selectedReward)
+        console.log(selectedReward)
     }
 
     function handleChange(e) {
@@ -39,17 +38,13 @@ const ModalRewardPacks = ({ name, description, minimumPledge, remaining }) => {
 
     function handleSubmit(e) {
         e.preventDefault()
-
+        if (userInput >= minimumPledge) {
+            dispatch({ type: 'BACK_PROJECT', payload: { name, amount: Number(userInput) } })
+            setModalStep(3)
+        } else {
+            setError(true)
+        }
     }
-
-    // useEffect(() => {
-    //     if (selectedReward === name) {
-    //         setSelected(true)
-    //     } else {
-    //         setSelected(false)
-    //     }
-    //     console.log(selectedReward)
-    // }, [])
 
     return (
         <div className={ `rewards ${remaining === 0 && 'fadeOut'}` } >
@@ -57,11 +52,15 @@ const ModalRewardPacks = ({ name, description, minimumPledge, remaining }) => {
             <div className="rewardsTxt">
 
                 <div className="rewardsTxt__titleContainer">
-                    <button
-                        onClick={ () => {
-                            { remaining != 0 && handleSelect() }
-                        } }
-                        className={ `circle` }>{ selectedReward === name && <span></span> }</button>
+                    { variation === 'default' && (
+                        <button
+                            onClick={ () => {
+                                { remaining != 0 && handleSelect() }
+                            } }
+                            className={ `circle` }>
+                            { selectedReward?.name === name && <span></span> }
+                        </button>)
+                    }
                     <h3
                         onClick={ () => {
                             { remaining != 0 && handleSelect() }
@@ -77,7 +76,7 @@ const ModalRewardPacks = ({ name, description, minimumPledge, remaining }) => {
                     </div>
                 </div>
 
-                <p className="desc">{ description }</p>
+                { variation === 'default' && <p className="desc">{ description }</p> }
             </div>
             <Figure
                 row
@@ -87,12 +86,12 @@ const ModalRewardPacks = ({ name, description, minimumPledge, remaining }) => {
             />
 
             {
-                selectedReward === name && <div className="selected">
+                selectedReward?.name === name && <div className="selected">
                     { <hr /> }
                     <div className="enterPledge">
-                        <p>Enter your pledge</p>
+                        { minimumPledge !== 0 && <p>Enter your pledge</p> }
                         <form onSubmit={ handleSubmit } className="form">
-                            <div className="formField">
+                            { minimumPledge !== 0 && (<div className="formField">
                                 <span>$</span>
                                 <input
                                     className={ `${error && 'inputError'}` }
@@ -103,10 +102,10 @@ const ModalRewardPacks = ({ name, description, minimumPledge, remaining }) => {
                                     onChange={ handleChange }
                                 />
 
-                            </div>
+                            </div>) }
 
                             <CustomButton
-                                customStyle={ 'submit' }
+                                customStyle={ `submit` }
                                 disabled={ remaining === 0 || error }
                             >Continue</CustomButton>
                         </form>

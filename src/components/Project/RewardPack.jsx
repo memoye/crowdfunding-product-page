@@ -1,9 +1,16 @@
+import { getProjectContext } from '../../context/ProjectsContext'
 import CustomButton from '../CustomButton/CustomButton'
 import Figure from './Figure'
 import './project.scss'
 
-const RewardPack = ({ name, description, minimumPledge, remaining, handleSelect }) => {
+const RewardPack = ({ name, description, minimumPledge, remaining }) => {
+    const { setSelectedReward, setModalOpen, setModalStep } = getProjectContext()
 
+    function handleSelect() {
+        setSelectedReward({ name, description, minimumPledge, remaining })
+        setModalStep(2)
+        setModalOpen(true)
+    }
 
     return (
         <div className={ `rewardPack card ${remaining === 0 && 'fadeOut'}` }>

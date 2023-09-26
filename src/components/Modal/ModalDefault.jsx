@@ -26,10 +26,12 @@ const ModalDefault = () => {
             <div className="rewardsContainer">
                 {
                     project.rewardPacks
-                        .map((item, i) => (<ModalRewardPacks
-                            key={ i }
-                            { ...item }
-                        />))
+                        .map((item, i) => (
+                            <ModalRewardPacks
+                                key={ i }
+                                variation='default'
+                                { ...item }
+                            />))
                 }
             </div>
 
