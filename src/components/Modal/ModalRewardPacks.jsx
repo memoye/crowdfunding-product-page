@@ -93,6 +93,7 @@ const ModalRewardPacks = ({ name, description, minimumPledge, remaining, variati
                             { minimumPledge !== 0 && (<div className="formField">
                                 <span>$</span>
                                 <input
+                                    inputMode="numeric"
                                     className={ `${error && 'inputError'}` }
                                     onBlur={ handleBlur }
                                     disabled={ remaining === 0 }
