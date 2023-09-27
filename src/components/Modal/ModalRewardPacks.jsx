@@ -15,7 +15,6 @@ const ModalRewardPacks = ({ name, description, minimumPledge, remaining, variati
         } else {
             setSelectedReward({ name, description, minimumPledge, remaining })
         }
-        console.log(selectedReward)
     }
 
     function handleChange(e) {
