@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Links
 
-- You can see [my solution here](https://www.frontendmentor.io/solutions/tip-calculator-app-gKJCg6ZXJR)
+- You can see [my solution here](https://www.frontendmentor.io/solutions/crowdfunding-product-page-using-reactjs-and-scss-8A7LR4sHcV)
 - View the [live site demo here](https://crowdfunding-product-page-mu-six.vercel.app/)
 
 ## My process
