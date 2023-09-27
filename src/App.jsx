@@ -6,6 +6,7 @@ import { getProjectContext } from './context/ProjectsContext'
 function App() {
   const { modalOpen } = getProjectContext()
 
+  // disable scroll if modal is open
   useEffect(() => {
     if (modalOpen === true) {
       document.body.style.overflow = 'hidden'
@@ -18,11 +19,8 @@ function App() {
     <>
       <div className={ `App` }>
         <NavBar />
-
         <Project />
-
         { modalOpen && <Modal /> }
-
       </div >
     </>
   )
