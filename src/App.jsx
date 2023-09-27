@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.scss'
 import { Modal, NavBar, Project } from './components'
 import { getProjectContext } from './context/ProjectsContext'
 
 function App() {
   const { modalOpen } = getProjectContext()
+
+  useEffect(() => {
+    if (modalOpen === true) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'scroll'
+    }
+  }, [modalOpen])
 
   return (
     <>
