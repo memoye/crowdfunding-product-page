@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer, useState } from "react";
-import { projectsReducer } from "../reducer/ProjectsReducer";
+import { projectsReducer } from "../reducer/projectsReducer";
 import { mastercraft } from "../assets";
 const ProjectsContext = createContext()
 
